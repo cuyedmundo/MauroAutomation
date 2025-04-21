@@ -1,0 +1,36 @@
+//////////////////
+/// TYPESCRIPT ///
+//////////////////
+
+/// Install typescript ///
+"-save-dev" means its only is required to develop, no to production.
+npm install typescript --save-dev
+
+
+/// create configuration file (tsconfig.json) ///
+npx tsc --init
+
+/// compile .ts to .js ///
+tsc fil.ts
+
+/// run .js ///
+node file.js
+
+/// recompile when detect changes ///
+tsc --watch
+
+/// using unknown the right way ///
+
+let valorDesconocido: unknown;
+valorDesconocido = "5";
+
+if (typeof valorDesconocido === "string") {
+    console.log(valorDesconocido.toUpperCase());
+
+} else if (typeof valorDesconocido === "number") {
+    console.log(valorDesconocido + 1);
+    
+} else {
+    console.log("No es ni número ni letra");
+}
+
