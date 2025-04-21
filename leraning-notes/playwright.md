@@ -1,17 +1,18 @@
-# PLAYWRIGHT 
+# PLAYWRIGHT
 
+## Install playwright
 
-# Install playwright 
 ```bash
 npm init playwright@latest 
 ```
 
-# Helper to generate code
+## Helper to generate code
+
 ```bash
 npx playwright codegen
 ```
 
-# Execute test in Slow mode 
+## Execute test in Slow mode
 <!-- in the file "playwright.config.ts" -->
 ```json
 use{
@@ -20,8 +21,8 @@ slowMo: 1000
 }}
 ```
 
-# Show report
+## Show report
+
 ```bash
 npx playwright show-report
 ```
-
