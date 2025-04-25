@@ -105,3 +105,26 @@ console.log (person);
 console.log (person[0]);
 console.log (person[1]);
 ```
+
+## Enum
+
+Its a group of constants
+
+```typescript
+enum element{
+    fire, // The first one have 0 value by default
+    wather, // value 1 (autoincremental)
+    earth = "earth", // custom string value
+    air = 9 // custom value
+};
+
+
+// Use enum 
+let power = element.fire;
+
+// Print name and value
+console.log("The element " + element[power] + " is the number " + power);
+
+// Print all
+console.log(element)
+```
