@@ -58,7 +58,7 @@ Array: collection of values of the same type
 ```typescript
 // Create new
 // "const" editable but not reasignable
-const consoles: string[] = ["xbox 360", "playstation 1", "nintendo switch"];
+let consoles: string[] = ["xbox 360", "playstation 1", "nintendo switch"];
 const consoles_generic: Array<string> //its the same that above but with a generic array
 
 // Add to the beginning
