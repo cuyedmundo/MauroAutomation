@@ -13,7 +13,9 @@ npx playwright codegen
 ```
 
 ## Execute test in Slow mode
-<!-- in the file "playwright.config.ts" -->
+
+in the file "playwright.config.ts"
+
 ```json
 use{
 launchOptions:{
