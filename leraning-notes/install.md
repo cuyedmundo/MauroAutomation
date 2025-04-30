@@ -11,6 +11,7 @@ npm install -D @cucumber/cucumber # for write tests in Gherkin syntax
 npm install -D typescript # compile .ts files to .js
 npm install -D ts-node # run .ts files directly without compiling manually
 npm install -D @types/node # help to auto-complete
+npm install -D dotenv # manage enviroment variables
 
 # 3.- Download browsers used by Playwright (Chromium, Firefox, WebKit)
 npx playwright install # ensures local browsers are present
@@ -20,13 +21,15 @@ npx tsc --init
 
 # 5.- Create the Cucumber config file
 cat > cucumber.js <<'EOF'
-const common = [
-  'features/**/*.feature',              // where Cucumber looks for .feature files
-  '--require-module ts-node/register',  // run TypeScript on-the-fly
-  '--require steps/**/*.ts',            // load all step definitions
-  '--format progress'                   // compact “dot” formatter
-];
-module.exports = { default: common.join(' ') };
+module.exports = {
+  // default profile --- npx cucumber-js  
+  default: {
+    paths: ['features/**/*.feature'],      // .feature files path
+    requireModule: ['ts-node/register'],   // TS support
+    require: ['steps/**/*.ts'],            // step defsinitions
+    format: ['progress']                   // dot formatter
+  },
+};
 EOF
 
 # 6.- Create folder structure
