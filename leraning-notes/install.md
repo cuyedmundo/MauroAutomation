@@ -36,4 +36,7 @@ EOF
 mkdir pages     # Page Object Model classes
 mkdir features  # Gherkin .feature files
 mkdir steps     # Step definitions
+
+# Extra
+npx playwright test --generate-config # for run test using playwright without cucumber
 ```
