@@ -8,8 +8,8 @@ import {
     setDefaultTimeout,
   } from '@cucumber/cucumber';
   import { chromium, Browser, BrowserContext, Page } from 'playwright';
-  import { OrangeHRMLoginPage } from '../pages/OrangeHRMLoginPage';
-  import { OrangeHRMDashboardPage } from '../pages/OrangeHRMDashboardPage';
+  import { OrangeHRMLoginPage } from '../pages/LoginPage';
+  import { OrangeHRMDashboardPage } from '../pages/DashboardPage';
   import dotenv from 'dotenv';
   
 
@@ -53,12 +53,12 @@ import {
     await loginPage.goto();
   });
   
-  When('the user logs in with valid credentials', async () => {
-    await loginPage.login(process.env.USERNAME!,   process.env.PASSWORD!);
-    dashboardPage = new OrangeHRMDashboardPage(page);
+  When('the user logs in with username {string} and password {string}', async (username: string, password: string) => {
+    await loginPage.login(username, password);
   });
   
   Then('the dashboard page should be displayed', async () => {
-    await dashboardPage.isVisible();
+    dashboardPage = new OrangeHRMDashboardPage(page);
+    await dashboardPage.DashboardIsVisible();
   });
   

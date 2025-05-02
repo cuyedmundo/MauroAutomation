@@ -1,18 +1,18 @@
-import { Page, Locator } from 'playwright';
+import { Page, Locator} from 'playwright';
+import { expect } from '@playwright/test';
 
 export class OrangeHRMDashboardPage {
   private page: Page;
-  // define locators
   private  header: Locator;
 
 
   constructor(page: Page) {
     this.page = page;
-    // instantiate locators
+    // locators
     this.header = page.getByRole('heading', { name: 'Dashboard' });
   }
 
-  async isVisible(): Promise<boolean> {
-    return this.header.isVisible();
-  }
+  async DashboardIsVisible(): Promise<void> {
+    await expect(this.header).toBeVisible();
 }
+};
