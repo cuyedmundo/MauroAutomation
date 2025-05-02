@@ -11,6 +11,19 @@ import {
   import { OrangeHRMLoginPage } from '../pages/LoginPage';
   import { OrangeHRMDashboardPage } from '../pages/DashboardPage';
   import dotenv from 'dotenv';
+
+// Helper
+  function getCredentials(input: string): string {
+    if (input.startsWith('env:')) {
+      const key = input.replace('env:', '');
+      const value = process.env[key];
+      if (!value) {
+        throw new Error(`Environment variable ${key} is not defined`);
+      }
+      return value;
+    }
+    return input;
+  }
   
 
   // Global objects to share between steps
@@ -54,7 +67,9 @@ import {
   });
   
   When('the user logs in with username {string} and password {string}', async (username: string, password: string) => {
-    await loginPage.login(username, password);
+    const EnvUsername = getCredentials(username);
+    const EnvPassword = getCredentials(password);
+    await loginPage.login(EnvUsername, EnvPassword);
   });
   
   Then('the dashboard page should be displayed', async () => {
