@@ -2,7 +2,7 @@ import { Page, Locator } from 'playwright';  // Import Playwright types
 import dotenv from 'dotenv';
 dotenv.config(); 
 
-export class OrangeHRMLoginPage {
+export class LoginPage {
   private page: Page;
   private usernameField: Locator;
   private passwordField: Locator;

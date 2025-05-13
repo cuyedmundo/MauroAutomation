@@ -1,7 +1,7 @@
 import { Page, Locator} from 'playwright';
 import { expect } from '@playwright/test';
 
-export class OrangeHRMDashboardPage {
+export class DashboardPage {
   private page: Page;
   private  header: Locator;
 
