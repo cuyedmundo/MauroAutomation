@@ -45,11 +45,23 @@ export function logHttpInteraction(entry: LoggedHttpEntry) {
 }
 
 export async function generateLogFile() {
-  if (logs.length === 0) return;
 
-  const reportDir = path.join(process.cwd(), 'reports');
+    const reportDir = path.join(process.cwd(), 'reports');
   if (!fs.existsSync(reportDir)) {
     fs.mkdirSync(reportDir, { recursive: true });
+  }
+
+    if (logs.length === 0) {
+    const okMessage = [
+      '_'.repeat(80),
+      `Timestamp   : ${getTimestamp()}`,
+      ' *** No HTTP errors (codes ≥ 400) were found in the logged responses.',
+      '_'.repeat(80),
+      ''
+    ].join('\n');
+
+    fs.writeFileSync(path.join(reportDir, 'http.log'), okMessage);
+    return;
   }
 
   const logContent = logs.map((log) => {
