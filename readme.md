@@ -26,7 +26,7 @@ Create a `.env` file in the root directory with the following structure::
 
 ```txt
 # Base URL of the OrangeHRM demo site
-BASE_URL="https://opensource-demo.orangehrmlive.com/"
+BASE_URL="https://app.unisimulador.com/"
 
 # Credentials for test user "user"
 user_EMAIL="EMAIL@EXAMPLE.COM"
