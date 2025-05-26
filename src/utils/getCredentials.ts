@@ -1,10 +1,15 @@
-export function getCredentials(text: string): string {
-    if (text.startsWith('env:')) {
-      const credential = process.env[text.replace('env:', '')];
-      if (!credential) {
-        throw new Error(`Environment variable is not defined`);
-      }
-      return credential;
-    }
-    return text;
+export function getCredentials(userKey: string): { email: string; password: string } {
+
+  const email = process.env[`${userKey}_EMAIL`];
+  const password = process.env[`${userKey}_PASSWORD`];
+
+  if (!email) {
+    throw new Error(`Environment variable "${userKey}_EMAIL" is not defined`);
   }
+
+  if (!password) {
+    throw new Error(`Environment variable "${userKey}_PASSWORD" is not defined`);
+  }
+
+  return { email, password };
+}

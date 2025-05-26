@@ -1,6 +1,6 @@
 # 🤓 MauroAutomation
 
-Automated testing framework that runs browser-based tests written in natural language and generates detailed reports.
+Automated testing framework that runs browser-based tests written in gherkin (pretty similar to natural language) and generates detailed reports.
 
 ## 🛠️ Technical Details
 
@@ -22,12 +22,29 @@ npx cucumber-js              # Run all feature files
 
 ### 🔐 Environment Variables
 
-Create a `.env` file in the root directory:
+Create a `.env` file in the root directory with the following structure::
 
 ```txt
+# Base URL of the OrangeHRM demo site
 BASE_URL="https://opensource-demo.orangehrmlive.com/"
-ADMIN_USER="user"
-ADMIN_PASS="password"
+
+# Credentials for test user "user"
+user_EMAIL="EMAIL@EXAMPLE.COM"
+user_PASSWORD="PASSWORD_FOR_THAT_USER"
+```
+
+```txt
+You can define multiple users by changing the prefix. For example:
+
+admin_EMAIL="admin@example.com"
+admin_PASSWORD="admin123"
+
+manager_EMAIL="manager@example.com"
+manager_PASSWORD="secret"
+
+Then, in your .feature file, use:
+When the user logs in with the stored user "admin"
+
 ```
 
 ## 🗂️ Project Structure
