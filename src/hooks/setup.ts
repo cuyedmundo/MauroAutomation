@@ -1,5 +1,5 @@
 import { BeforeAll, AfterAll, Before, After, setDefaultTimeout, BeforeStep, AfterStep } from '@cucumber/cucumber';
-import { chromium, Browser, BrowserContext, Page } from 'playwright';
+import { chromium, Browser, BrowserContext, Page, firefox } from 'playwright';
 import { generateLogFile, getRequestAndResponse } from '../utils/httpLogger';
 import * as path from 'path';
 
@@ -10,7 +10,7 @@ let page: Page;
 setDefaultTimeout(30 * 1000);
 
 BeforeAll(async () => {
-  browser = await chromium.launch({ headless: true });
+  browser = await firefox.launch({ headless: false });
 });
 
 AfterAll(async () => {

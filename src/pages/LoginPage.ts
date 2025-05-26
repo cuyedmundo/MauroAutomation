@@ -13,10 +13,10 @@ export class LoginPage {
   constructor(page: Page) {
     this.page = page;
     // locators
-    this.usernameField = page.locator('input[name="username"]');
-    this.passwordField = page.locator('input[name="password"]');
-    this.loginButton  = page.locator('button[type="submit"]');
-    this.invalidCredentials = page.getByText('Invalid credentials');
+    this.usernameField = page.getByRole('textbox', { name: 'Email' })
+    this.passwordField = page.getByRole('textbox', { name: 'Password' })
+    this.loginButton  = page.getByRole('button', { name: 'Sign In', exact: true })
+    this.invalidCredentials = page.getByText('Invalid login credentials')
   };
 
   async goto() {
