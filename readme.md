@@ -68,16 +68,35 @@ When the user logs in with the stored user "admin"
 
 ## 📊 Viewing Reports
 
+### HTML report
+
+Report with scenarios and steps executed
+
 ```bash
-# Open HTML report
 open reports/cucumber-report.html
-
-# Open HTTP logged errors 
-open reports/http.log
-
-# Visualize Playwright trace
-npx playwright show-trace reports/<Scenario>.zip
 ```
+
+![Open HTML report](src/readme/HTML_report.png)
+
+### HTTP logged errors
+
+Report with details of HTTP 4xx/5xx codes loged during the test
+
+```bash
+open reports/http.log
+```
+
+![http.log](src/readme/http_log.gif)
+
+### Visualize Playwright trace
+
+Displays a rendered DOM, all network activity, and console messages that occurred during each steps of the test execution.
+
+```bash
+npx playwright show-trace reports/scenario_name.zip
+```
+
+![http.log](src/readme/trace.gif)
 
 ## 🤝 Contributing
 
